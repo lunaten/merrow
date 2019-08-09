@@ -1,0 +1,4 @@
+{
+    "output.historyPath": "./output/history/",
+    "output.latestPath": "./output/latest/"
+}

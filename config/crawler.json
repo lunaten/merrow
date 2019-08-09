@@ -1,0 +1,155 @@
+[
+    {
+        "siteName": "クックパッド開発者ブログ",
+        "siteUrl": "https://techlife.cookpad.com/archive",
+        "scraping": [
+            {
+                "tagName": "section",
+                "attrs": "class",
+                "attrsName": "archive-entry",
+                "scraping" :[
+                    {
+                        "tagName": "time",
+                        "attrs": null,
+                        "attrsName": null,
+                        "scraping": null,
+                        "type": "date",
+                        "get": "datetime"
+                    },
+                    {
+                        "tagName": "a",
+                        "attrs": "class",
+                        "attrsName": "entry-title-link",
+                        "scraping": null,
+                        "type": "url",
+                        "get": "href"
+                    }
+                ],
+                "type": null,
+                "get": null
+            }
+        ]
+    },
+    {
+        "siteName": "フローレンス",
+        "siteUrl": "https://florence.or.jp/news/2019/06/?post_type=news",
+        "scraping": [
+            {
+                "tagName": "ul",
+                "attrs": "class",
+                "attrsName": "item box column_3 clear",
+                "scraping" :[
+                    {
+                        "tagName": "li",
+                        "attrs": null,
+                        "attrsName": null,
+                        "scraping": [
+                            {
+                                "tagName": "p",
+                                "attrs": "class",
+                                "attrsName": "date",
+                                "scraping": null,
+                                "type": "date",
+                                "get": null
+                            },
+                            {
+                                "tagName": "p",
+                                "attrs": "class",
+                                "attrsName": "title",
+                                "scraping": [
+                                    {
+                                        "tagName": "a",
+                                        "attrs": null,
+                                        "attrsName": null,
+                                        "scraping": null,
+                                        "type": "url",
+                                        "get": "href"
+                                    }   
+                                ],
+                                "type": null,
+                                "get": null
+                            }
+                        ],
+                        "type": null,
+                        "get": null
+                    }
+                ],
+                "type": null,
+                "get": null
+            }
+            
+        ]
+    },
+    {
+        "siteName": "未確認飛行C",
+        "siteUrl": "https://ufcpp.net/",
+        "scraping": [
+            {
+                "tagName": "section",
+                "attrs": "class",
+                "attrsName": "latest-posts sub-info-section",
+                "scraping" :[
+                    {
+                        "tagName": "article",
+                        "attrs": null,
+                        "attrsName": null,
+                        "scraping": [
+                            {
+                                "tagName": "time",
+                                "attrs": null,
+                                "attrsName": null,
+                                "scraping": null,
+                                "type": "date",
+                                "get": null
+                            },
+                            {
+                                "tagName": "a",
+                                "attrs": null,
+                                "attrsName": null,
+                                "scraping": null,
+                                "type": "url",
+                                "get": "href"
+                            }
+                        ],
+                        "type": null,
+                        "get": null
+                    }
+                ],
+                "type": null,
+                "get": null
+            }
+            
+        ]
+    },
+    {
+        "siteName": "技術探し",
+        "siteUrl": "https://blog.hiroppy.me/",
+        "scraping": [
+            {
+                "tagName": "div",
+                "attrs": "class",
+                "attrsName": "date archive-date",
+                "scraping" :[
+                    {
+                        "tagName": "time",
+                        "attrs": null,
+                        "attrsName": null,
+                        "scraping": null,
+                        "type": "date",
+                        "get": "datetime"
+                    },
+                    {
+                        "tagName": "a",
+                        "attrs": null,
+                        "attrsName": null,
+                        "scraping": null,
+                        "type": "url",
+                        "get": "href"
+                    }
+                ],
+                "type": null,
+                "get": null
+            }
+        ]
+    }
+]
