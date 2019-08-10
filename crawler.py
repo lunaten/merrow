@@ -144,8 +144,8 @@ if __name__ == '__main__':
     latest_path = distributer_settings['output.latestPath']
     histry_path = distributer_settings['output.historyPath']
 
-    # os.makedirs('temp/dir1/dir', exist_ok=True)
-    # os.makedirs('temp/dir2', exist_ok=True)
+    os.makedirs(latest_path, exist_ok=True)
+    os.makedirs(histry_path, exist_ok=True)
     for p in os.listdir(latest_path):
         shutil.move(os.path.join(latest_path, p), histry_path)
 
