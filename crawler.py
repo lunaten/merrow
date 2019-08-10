@@ -130,6 +130,7 @@ def writeToJson(out_folder_path, site_name, write_array):
     f.write(enc)
     f.close()
 
+
 # -------------------------------------------------
 # app start
 # -------------------------------------------------
