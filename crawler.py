@@ -181,4 +181,4 @@ def writeToJson(out_folder_path, site_name, write_array):
 # app start
 # -------------------------------------------------
 if __name__ == '__main__':
-    app.run()
+    app.run(host="lunaten.netlify.com", port=8000)
