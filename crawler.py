@@ -10,6 +10,52 @@ from datetime import datetime
 import logging
 import shutil
 import os
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+
+    file_list = runMerrow()
+    return file_list
+
+# -------------------------------------------------
+# runMerrow
+# -------------------------------------------------
+def runMerrow():
+    # クローリング・設定ファイル
+    crawler_settings = json.load(open('./config/crawler.json', 'r'))
+
+    # Slack配信・設定ファイル
+    distributer_settings = json.load(open('./config/distributer.json', 'r'))
+    latest_path = distributer_settings['output.latestPath']
+    histry_path = distributer_settings['output.historyPath']
+
+    os.makedirs(latest_path, exist_ok=True)
+    os.makedirs(histry_path, exist_ok=True)
+    for p in os.listdir(latest_path):
+        shutil.move(os.path.join(latest_path, p), histry_path)
+
+    # クローリング
+    crawling(crawler_settings, latest_path)
+
+    # outputのファイル一覧を返却
+    file_list = ""
+    file_list += "<h3>" + latest_path + "</h3>"
+    file_list += "<ul>"
+    for p in os.listdir(latest_path):
+        file_list += "<li>" + p + "</li>"
+    else:
+        file_list += "</ul>"
+
+    file_list += "<h3>" + histry_path + "</h3>"
+    file_list += "<ul>"
+    for p in os.listdir(histry_path):
+        file_list += "<li>" + p + "</li>"
+    else:
+        file_list += "</ul>"
+
+    return file_list
 
 # -------------------------------------------------
 # crawling
@@ -135,20 +181,4 @@ def writeToJson(out_folder_path, site_name, write_array):
 # app start
 # -------------------------------------------------
 if __name__ == '__main__':
-
-    # クローリング・設定ファイル
-    crawler_settings = json.load(open('./config/crawler.json', 'r'))
-
-    # Slack配信・設定ファイル
-    distributer_settings = json.load(open('./config/distributer.json', 'r'))
-    latest_path = distributer_settings['output.latestPath']
-    histry_path = distributer_settings['output.historyPath']
-
-    os.makedirs(latest_path, exist_ok=True)
-    os.makedirs(histry_path, exist_ok=True)
-    for p in os.listdir(latest_path):
-        shutil.move(os.path.join(latest_path, p), histry_path)
-
-    # クローリング
-    crawling(crawler_settings, latest_path)
-
+    app.run()
