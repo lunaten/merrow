@@ -10,14 +10,16 @@ from datetime import datetime
 import logging
 import shutil
 import os
-from flask import Flask
-app = Flask(__name__)
 
-@app.route("/")
-def hello():
+# flaskを使用せずに直接実行
+# from flask import Flask
+# app = Flask(__name__)
 
-    file_list = runMerrow()
-    return file_list
+# @app.route("/")
+# def hello():
+
+#     file_list = runMerrow()
+#     return file_list
 
 # -------------------------------------------------
 # runMerrow
@@ -181,4 +183,10 @@ def writeToJson(out_folder_path, site_name, write_array):
 # app start
 # -------------------------------------------------
 if __name__ == '__main__':
-    app.run()
+
+    # flaskを使用せずにphpからの直接実行
+    # app.run()
+    #print("$ FLASK_APP=crawler.py flask run")
+
+    file_list = runMerrow()
+    print(file_list)
